@@ -10,21 +10,21 @@
     
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
-    <artifactId>moowheeljs</artifactId>
-    <version>0.2</version>
+    <artifactId>moowheel</artifactId>
+    <version>0.2-SNAPSHOT</version>
     <name>MooWheel</name>
     <description>A JavaScript connections visualization library</description>
     <url>http://labs.unwieldy.net/moowheel/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>0.2</upstream.version>
-        <upstream.url>https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/moowheel/moowheel_v02.zip</upstream.url>
+        <upstream.version>02</upstream.version>
+        <upstream.url>https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/moowheel/moowheel_v${upstream.version}.zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
                 "paths": {
-                    "moowheeljs": "moowheeljs"
+                    "moowheel": "moowheel"
                 }
             }
         </requirejs>
@@ -47,9 +47,9 @@
     </licenses>
 
     <scm>
-        <url>http://github.com/webjars/moowheeljs</url>
-        <connection>scm:git:https://github.com/webjars/moowheeljs.git</connection>
-        <developerConnection>scm:git:https://github.com/webjars/moowheeljs.git</developerConnection>
+        <url>http://github.com/webjars/moowheel</url>
+        <connection>scm:git:https://github.com/webjars/moowheel.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/moowheel.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     
@@ -71,11 +71,9 @@
                                 <echo message="download archive"/>
                                 <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip"/>
                                 <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/moowheel"/>
                                 <echo message="moving resources"/>
-                                <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstream.version}"/>
-                                </move>
+                                <move todir="${destDir}" file="${project.build.directory}/moowheel/moowheel.js"/>
                             </target>
                         </configuration>
                     </execution>
