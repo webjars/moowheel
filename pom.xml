@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>moowheel</artifactId>
-    <version>0.2-1-SNAPSHOT</version>
+    <version>0.2-1</version>
     <name>MooWheel</name>
     <description>A JavaScript connections visualization library</description>
     <url>http://labs.unwieldy.net/moowheel/</url>
@@ -50,7 +50,7 @@
         <url>http://github.com/webjars/moowheel</url>
         <connection>scm:git:https://github.com/webjars/moowheel.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/moowheel.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>moowheel-0.2-1</tag>
     </scm>
     
     <dependencies>
@@ -74,7 +74,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/moowheel" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/moowheel" excludes="demo/"/>
+                                    <fileset dir="${project.build.directory}/moowheel" excludes="demo/" />
                                 </move>
                             </target>
                         </configuration>
