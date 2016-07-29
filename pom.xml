@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>moowheel</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.2-1-SNAPSHOT</version>
     <name>MooWheel</name>
     <description>A JavaScript connections visualization library</description>
     <url>http://labs.unwieldy.net/moowheel/</url>
@@ -73,7 +73,9 @@
                                 <echo message="unzip archive" />
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/moowheel" />
                                 <echo message="moving resources" />
-                                <move todir="${destDir}" file="${project.build.directory}/moowheel/moowheel.js" />
+                                <move todir="${destDir}">
+                                    <fileset dir="${project.build.directory}/moowheel" excludes="demo/"/>
+                                </move>
                             </target>
                         </configuration>
                     </execution>
